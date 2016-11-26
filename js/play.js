@@ -7,6 +7,10 @@ var playState = {
         this.coinSound = game.add.audio('coin');
         this.deadSound = game.add.audio('dead');
 
+        this.music = game.add.audio('music');
+        this.music.loop = true;
+        this.music.play();
+
         this.player = game.add.sprite(game.width/2, game.height/2, 'player');
         this.player.anchor.setTo(0.5, 0.5);
         game.physics.arcade.enable(this.player);
@@ -53,12 +57,14 @@ var playState = {
         }
 
         if (this.cursor.up.isDown && this.player.body.touching.down) {
+            this.jumpSound.play();
             this.player.body.velocity.y = -320;
         }
     },
 
     takeCoin: function(player, coin) {
         game.global.score += 5;
+        this.coinSound.play();
         this.scoreLabel.text = 'score: ' + game.global.score;
 
         this.updateCoinPosition();
@@ -116,8 +122,9 @@ var playState = {
 
         this.walls.setAll('body.immovable', true);
     },
-
     playerDie: function() {
+        this.music.stop();
+        this.deadSound.play();
         game.state.start('menu');
     },
 };

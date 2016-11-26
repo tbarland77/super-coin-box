@@ -22,6 +22,8 @@ var loadState = {
     game.load.audio('jump', ['assets/jump.ogg', 'assets/jump.ogg']);
     game.load.audio('coin', ['assets/coin.ogg', 'assets/coin.ogg']);
     game.load.audio('dead', ['assets/dead.ogg', 'assets/dead.ogg']);
+    // bg music
+    game.load.audio('music', ['assets/music/Hail8bit.mp3', 'assets/music/Hail8bit.ogg'])
   },
 
   create: function() {
