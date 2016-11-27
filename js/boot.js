@@ -12,7 +12,7 @@ var bootState = {
     // If the device is not a desktop
     if (!game.device.desktop) {
     // Set the type of scaling to 'show all'
-    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     // Set the min and max width/height of the game
     game.scale.setMinMax(game.width/2, game.height/2,
     game.width*2, game.height*2);
